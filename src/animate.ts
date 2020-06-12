@@ -343,9 +343,9 @@ export const animateSvg = (
   let finishedMs;
   const groups = createGroups(svg, elements);
   const finished = new Map();
-  let current = 1000; // 1 sec margin
-  const groupDur = 5000;
-  const individualDur = 500;
+  let current = 0; // 1 sec margin
+  const groupDur = 500;
+  const individualDur = 250;
   let index = 0;
   (svg.childNodes as NodeListOf<SVGElement>).forEach((ele) => {
     if (ele.tagName === "g") {
@@ -376,6 +376,6 @@ export const animateSvg = (
       index += 1;
     }
   });
-  finishedMs = current + 1000; // 1 sec margin
+  finishedMs = current; // 1 sec margin
   return { finishedMs };
 };
